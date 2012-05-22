@@ -24,19 +24,25 @@ def GetList(stoxos, mac):
 	    line = file.readline()
 	    if (stoxos == thesh): 
 #Edw thelw int.
-		teliko = int(line.split(' ', MaxMacs)[mac],16) 
+			try:
+				teliko = int(line.split(' ', MaxMacs)[mac],16) 
 #Otan loipoyn midenika.. ta xwnoume emeis
-		teliko2 = "000000"+str(teliko)
-		ksekina = len(str(teliko))-8
-		teliko2 = teliko2[ksekina+6:14:1] 
-		print ""
-		print ""
-		print "************************************************************"
-		return "To WPA Vrethike: " + teliko2;
+				teliko2 = "000000"+str(teliko)
+				ksekina = len(str(teliko))-8
+				teliko2 = teliko2[ksekina+6:14:1] 
+				print ""
+				print ""
+				print "************************************************************"
+				return "To WPA Vrethike: " + teliko2;
+	 		except Exception:
+			  print "Sorry... den vrethike"
+  			  sys.exc_clear()
+
 	    thesh= thesh - 1
 	    if not line:
 	        break
 	    pass # do something
+
 
 welcome()
 Thima=raw_input("\n Mac Stoxou: ").replace(':','')
